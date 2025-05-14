@@ -1,30 +1,22 @@
-$this->extend('layout/template');
-?>
-<div class="container">
-    <div class="row">
-        <h1 class="mt-2">Daftar Buku</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Sampul</th>
-                    <th scope="col">Judul</th>
-                    <th scope="col">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $i = 1; ?>
-                <?php foreach ($buku as $b): ?>
-                <tr>
-                    <th scope="row"><?= $i; ?></th>
-                    <td><img src="/img/<?= $b['sampul']; ?>" alt="" class="sampul"></td>
-                    <td><?= $b['judul']; ?></td>
-                    <td><a href="#" class="btn btn-success">Detail</a></td>
-                </tr>
-                <?php $i++; ?>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-<?php $this->endSection(); ?>
+<?= $this->include('template/header') ?>
+<h2>Daftar Buku</h2>
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Judul</th>
+            <th>Penulis</th>
+            <th>Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($books as $book): ?>
+        <tr>
+            <td><?= $book['judul']; ?></td>
+            <td><?= $book['penulis']; ?></td>
+            <td><a href="/books/<?= $book['slug']; ?>">Detail</a></td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+<?= $this->include('template/footer') ?>
