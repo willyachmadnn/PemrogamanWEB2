@@ -19,7 +19,7 @@
                                 <snall class="text body secondary"><b>Penerbit :</b> <?= $buku['penerbit']; ?></snall>
                             </p>
 
-                            <a href="" class="btn btn-warning">Rubah</a>
+                            <a href="" class="btn btn-warning">Ubah</a>
                             <a href="" class="btn btn-danger">Hapus</a>
                             <br><br>
                             <a href="/books">Kembali ke Daftar Buku</a>

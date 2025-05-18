@@ -22,6 +22,8 @@ class Books extends BaseController
     }
     public function detail($slug)
     {
+        //$buku = $this->bukuModel->where(['$slug' => $slug])->first();
+        //$buku = $this->bukuModel->getKomik($slug); pindah ke data
 
         $data = [
             'title' => 'Detail Buku',
