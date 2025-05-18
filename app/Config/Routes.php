@@ -12,3 +12,8 @@ $routes->get('/Faqs', 'Page::faqs');
 $routes->get('/Tos', 'Page::tos');
 $routes->get('/Biodata', 'Page::biodata');
 $routes->setAutoRoute(false);
+
+
+$routes->get('/books', 'Books::index');
+$routes->get('/books/detail/(:segment)', 'Books::detail/$1');
+$routes->setAutoRoute(false);
