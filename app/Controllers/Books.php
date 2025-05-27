@@ -49,7 +49,7 @@ class Books extends BaseController
             'slug' => $slug,
             'penulis' => $this->request->getVar('penulis'),
             'penerbit' => $this->request->getVar('penerbit'),
-            'sampul' => $this->request->getVar('sampul') // bisa default atau inputan baru
+            'sampul' => $this->request->getVar('sampul')
         ]);
 
         return redirect()->to('/books');
@@ -70,9 +70,6 @@ class Books extends BaseController
 
         return redirect()->to('/books')->with('success', 'Buku berhasil dihapus.');
     }
-
-
-
     public function create()
     {
         $data = [
@@ -83,7 +80,7 @@ class Books extends BaseController
 
     public function save()
     {
-        $slug = url_title($this->request->getVar('judul'), '-', true); // buat slug dari judul otomatis
+        $slug = url_title($this->request->getVar('judul'), '-', true);
 
         $this->bukuModel->save([
             'judul' => $this->request->getVar('judul'),
@@ -93,7 +90,7 @@ class Books extends BaseController
             'sampul' => $this->request->getVar('sampul') ?: 'default.jpg'
         ]);
 
-        return redirect()->to('/books/' . $slug); // langsung arahkan ke detail
+        return redirect()->to('/books/' . $slug);
     }
 
 }

@@ -3,7 +3,6 @@
 <?= $this->section('content'); ?>
 <div class="container py-5">
     <div class="row g-5 align-items-start">
-        <!-- Kontak Info -->
         <div class="col-lg-6">
             <h1 class="display-6 fw-bold text-dark mb-3">Hubungi Kami</h1>
             <p class="mt-4 text-muted">
@@ -20,8 +19,6 @@
                 sekadar ingin berbagi koleksi buku dan komik favoritmu.
             </p>
         </div>
-
-        <!-- Form Kirim Pesan -->
         <div class="col-lg-6">
             <h5 class="fw-bold text-dark mb-3">Kirim Pesan</h5>
             <form>

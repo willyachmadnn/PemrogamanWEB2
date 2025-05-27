@@ -6,7 +6,6 @@
         <div class="col">
             <h1 class="mt-2">Daftar Buku</h1>
 
-            <!-- Tombol tambah data buku -->
             <a href="/books/create" class="btn btn-primary mb-3 ">Tambah Data Buku</a>
 
             <table class="table">

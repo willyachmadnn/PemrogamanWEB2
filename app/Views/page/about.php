@@ -3,13 +3,12 @@
 <?= $this->section('content'); ?>
 <div class="container py-5">
     <div class="row align-items-center g-5">
-        <!-- Kolom Gambar -->
+
         <div class="col-lg-5">
             <img src="/img/jaringan.jpg" alt="Ilustrasi Buku Jaringan"
                 class="img-fluid rounded-4 shadow-sm border border-2 border-light">
         </div>
 
-        <!-- Kolom Konten -->
         <div class="col-lg-7">
             <h1 class="display-5 fw-bold text-dark mb-3">Tentang Aplikasi Buku Jaringan</h1>
             <p class="lead text-muted">
