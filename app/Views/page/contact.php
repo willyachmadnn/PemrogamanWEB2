@@ -19,6 +19,7 @@
                 sekadar ingin berbagi koleksi buku dan komik favoritmu.
             </p>
         </div>
+
         <div class="col-lg-6">
             <h5 class="fw-bold text-dark mb-3">Kirim Pesan</h5>
             <form>

@@ -3,6 +3,7 @@
 
 <div class="container py-5">
     <h1>BIODATA</h1>
+
     <ul>
         <li><strong>Nama:</strong> <?= $nama; ?></li>
         <li><strong>Umur:</strong> <?= $umur; ?> Tahun</li>
@@ -11,5 +12,6 @@
         <li><strong>Status:</strong> <?= $status; ?></li>
     </ul>
 </div>
+
 
 <?= $this->endSection(); ?>

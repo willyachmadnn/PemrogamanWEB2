@@ -1,6 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+
 <div class="container py-5">
     <div class="row align-items-center g-5">
 
@@ -27,7 +28,6 @@
                 <li>✏️ Edit informasi buku dengan mudah</li>
                 <li>🗑️ Hapus buku yang sudah tidak relevan</li>
             </ul>
-
             <p class="mt-3 text-muted">
                 Aplikasi ini dibuat menggunakan framework <strong>CodeIgniter 4</strong>,
                 dan cocok untuk <em>pelajar, mahasiswa, dosen</em>, serta <em>profesional di bidang TI</em>
