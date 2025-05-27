@@ -4,30 +4,42 @@ class Page extends BaseController
 {
     public function about()
     {
-        echo "about page";
+        $data = [
+            'title' => 'About'
+        ];
+
+        return view('page/about', $data);
     }
+
     public function contact()
     {
-        echo "contact page";
+        $data = ['title' => 'Contact'];
+        return view('page/contact', $data);
     }
 
     public function faqs()
     {
-        echo "Faqs page";
+        $data = ['title' => 'FAQs'];
+        return view('page/faqs', $data);
     }
 
     public function tos()
     {
-        echo "Halaman Tern of Service";
+        $data = ['title' => 'Terms of Service'];
+        return view('page/tos', $data);
     }
 
     public function biodata()
     {
-        echo "<h1>BIODATA</h1>";
-        echo "<h2>Nama : Willy Achmad Nurani</h2>";
-        echo "<h2>Umur : 20 Tahun</h2>";
-        echo "<h2>Alamat : Dusun Tumapel, Kec.Jatirejo, Kab.Mojokerto</h2>";
-        echo "<h2>Email : willyachmadn@gmail.com</h2>";
-        echo "<h2>Status : Mahasiswa</h2>";
+        $data = [
+            'title' => 'Biodata',
+            'nama' => 'Willy Achmad Nurani',
+            'umur' => 20,
+            'alamat' => 'Dusun Tumapel, Kec.Jatirejo, Kab.Mojokerto',
+            'email' => 'willyachmadn@gmail.com',
+            'status' => 'Mahasiswa'
+        ];
+
+        return view('page/biodata', $data);
     }
 }
