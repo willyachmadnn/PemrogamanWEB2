@@ -11,8 +11,8 @@
                 dan komik? Kami senang mendengar kabar dari Anda!
             </p>
             <ul class="list-unstyled fs-5 mt-4">
-                <li><strong>Email:</strong> jarlokaf@bookmanager.com</li>
-                <li><strong>WhatsApp:</strong> +62 811-9923-7743/li>
+                <li><strong>Email:</strong> jarlokafuniv.ac.id</li>
+                <li><strong>WhatsApp:</strong> +62 811-9923-7743</li>
                 <li><strong>Instagram:</strong> @jarlokaf.id</li>
             </ul>
             <p class="mt-4 text-muted">
