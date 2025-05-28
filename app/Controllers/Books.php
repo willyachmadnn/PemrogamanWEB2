@@ -41,7 +41,7 @@ class Books extends BaseController
     public function create()
     {
         $data = [
-            'title' => 'Form Tambah Buku',
+            'title' => 'Tambah Buku',
             'validation' => \Config\Services::validation()
         ];
         return view('books/create', $data);
@@ -49,27 +49,37 @@ class Books extends BaseController
 
     public function save()
     {
+
         if (
             !$this->validate([
-                'judul' => 'required|is_unique[books.judul]',
-                'penulis' => 'required|is_unique[books.penulis]',
-                'penerbit' => 'required|is_unique[books.penerbit]',
+                'judul' => 'required',
+                'penulis' => 'required',
+                'penerbit' => 'required',
             ])
         ) {
             return redirect()->to('/books/create')->withInput()->with('validation', $this->validator);
         }
 
-        $slug = url_title($this->request->getVar('judul'), '-', true);
+        $judul = $this->request->getVar('judul');
+        $penulis = $this->request->getVar('penulis');
+        $penerbit = $this->request->getVar('penerbit');
+        $sampul = $this->request->getVar('sampul') ?: 'default.jpg';
 
+        if ($this->bukuModel->bukuSudahAda($judul, $penulis)) {
+            session()->setFlashdata('error', 'Buku tersebut sudah ada!');
+            return redirect()->to('/books/create')->withInput();
+        }
+
+        $slug = url_title($judul, '-', true);
         $this->bukuModel->save([
-            'judul' => $this->request->getVar('judul'),
+            'judul' => $judul,
             'slug' => $slug,
-            'penulis' => $this->request->getVar('penulis'),
-            'penerbit' => $this->request->getVar('penerbit'),
-            'sampul' => $this->request->getVar('sampul') ?: 'default.jpg'
+            'penulis' => $penulis,
+            'penerbit' => $penerbit,
+            'sampul' => $sampul
         ]);
 
-        session()->setFlashdata('pesan', 'Data buku berhasil ditambahkan.');
+        session()->setFlashdata('pesan', 'Buku berhasil ditambahkan!');
         return redirect()->to('/books');
     }
 
@@ -85,14 +95,14 @@ class Books extends BaseController
         }
 
         $this->bukuModel->delete($id);
-
-        session()->setFlashdata('pesan', 'Data buku berhasil dihapus.');
+        session()->setFlashdata('pesan', 'Buku berhasil dihapus!');
         return redirect()->to('/books');
     }
+
     public function edit($slug)
     {
         $data = [
-            'title' => 'Form Ubah Buku',
+            'title' => 'Ubah Buku',
             'validation' => \Config\Services::validation(),
             'buku' => $this->bukuModel->getBuku($slug)
         ];
@@ -101,35 +111,42 @@ class Books extends BaseController
 
     public function update($id)
     {
-        $bukuLama = $this->bukuModel->getBuku($this->request->getVar('slug'));
+        $judulBaru = $this->request->getVar('judul');
+        $sampulBaru = $this->request->getVar('sampul');
+        $slugBaru = url_title($judulBaru, '-', true);
 
-        $judulRule = ($bukuLama['judul'] == $this->request->getVar('judul')) ? 'required' : 'required|is_unique[books.judul]';
-        $penulisRule = ($bukuLama['penulis'] == $this->request->getVar('penulis')) ? 'required' : 'required|is_unique[books.penulis]';
-        $penerbitRule = ($bukuLama['penerbit'] == $this->request->getVar('penerbit')) ? 'required' : 'required|is_unique[books.penerbit]';
+        $bukuLama = $this->bukuModel->find($id);
+
+        $judulDuplikat = $this->bukuModel->where('judul', $judulBaru)->where('id !=', $id)->first();
+        $sampulDuplikat = $this->bukuModel->where('sampul', $sampulBaru)->where('id !=', $id)->first();
+
+        if ($judulDuplikat || $sampulDuplikat) {
+            session()->setFlashdata('error', 'Judul buku digunakan oleh buku lain!');
+            return redirect()->to('/books/edit/' . $bukuLama['slug'])->withInput();
+        }
 
         if (
             !$this->validate([
-                'judul' => $judulRule,
-                'penulis' => $penulisRule,
-                'penerbit' => $penerbitRule,
+                'judul' => 'required',
+                'penulis' => 'required',
+                'penerbit' => 'required',
             ])
         ) {
-            return redirect()->to('/books/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $this->validator);
+            return redirect()->to('/books/edit/' . $bukuLama['slug'])->withInput()->with('validation', $this->validator);
         }
-
-        $slug = url_title($this->request->getVar('judul'), '-', true);
 
         $this->bukuModel->save([
             'id' => $id,
-            'judul' => $this->request->getVar('judul'),
-            'slug' => $slug,
+            'judul' => $judulBaru,
+            'slug' => $slugBaru,
             'penulis' => $this->request->getVar('penulis'),
             'penerbit' => $this->request->getVar('penerbit'),
-            'sampul' => $this->request->getVar('sampul')
+            'sampul' => $sampulBaru
         ]);
 
-        session()->setFlashdata('pesan', 'Data buku berhasil diubah.');
+        session()->setFlashdata('pesan', 'Data buku berhasil diubah!');
         return redirect()->to('/books');
     }
+
 
 }

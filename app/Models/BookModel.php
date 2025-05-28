@@ -11,7 +11,6 @@ class BookModel extends Model
     protected $useTimestamps = true;
     protected $allowedFields = ['judul', 'slug', 'penulis', 'penerbit', 'sampul'];
 
-
     public function getBuku($slug = false)
     {
         if ($slug === false) {
@@ -21,4 +20,10 @@ class BookModel extends Model
         return $this->where(['slug' => $slug])->first();
     }
 
+    public function bukuSudahAda($judul, $penulis)
+    {
+        return $this->where('judul', $judul)
+            ->where('penulis', $penulis)
+            ->first();
+    }
 }

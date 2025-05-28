@@ -4,7 +4,13 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <h2 class="my-3">Rubah Data Buku</h2>
+            <h2 class="my-3">Ubah Data Buku</h2>
+
+            <?php if (session()->getFlashdata('error')): ?>
+                <div class="alert alert-danger" role="alert">
+                    <?= session()->getFlashdata('error'); ?>
+                </div>
+            <?php endif; ?>
 
             <form action="/books/update/<?= $buku['id']; ?>" method="post">
                 <?= csrf_field(); ?>
@@ -34,10 +40,10 @@
                 <div class="mb-3">
                     <label for="sampul" class="form-label">Sampul</label>
                     <input type="text" name="sampul" value="<?= old('sampul', $buku['sampul']); ?>"
-                        class="form-control">
+                        class="form-control <?= ($validation->hasError('sampul')) ? 'is-invalid' : ''; ?>">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Ubah Data</button>
+                <button type="submit" class="btn btn-primary text-dark fw-semibold">Ubah Data</button>
             </form>
         </div>
     </div>

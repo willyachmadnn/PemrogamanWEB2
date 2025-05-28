@@ -36,7 +36,7 @@
                     <textarea class="form-control shadow-sm" id="pesan" rows="4"
                         placeholder="Tuliskan pesan Anda..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary px-4 py-2">Kirim</button>
+                <button type="submit" class="btn btn-primary px-4 py-2 text-dark fw-semibold">Kirim</button>
             </form>
         </div>
     </div>

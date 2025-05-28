@@ -6,12 +6,12 @@
     <div class="row align-items-center g-5">
 
         <div class="col-lg-5">
-            <img src="/img/jaringan.jpg" alt="Ilustrasi Buku Jaringan"
+            <img src="/img/sampul.png" alt="Ilustrasi Buku Jaringan"
                 class="img-fluid rounded-4 shadow-sm border border-2 border-light">
         </div>
 
         <div class="col-lg-7">
-            <h1 class="display-5 fw-bold text-dark mb-3">Tentang Aplikasi Buku Jaringan</h1>
+            <h1 class="display-8 fw-bold text-dark mb-3">Tentang Buku Jaringan</h1>
             <p class="lead text-muted">
                 Aplikasi <strong>Manajemen Buku Jaringan</strong> ini dirancang sebagai sistem katalog digital
                 untuk mengelola koleksi buku-buku seputar jaringan komputer.
@@ -33,7 +33,7 @@
                 dan cocok untuk <em>pelajar, mahasiswa, dosen</em>, serta <em>profesional di bidang TI</em>
                 yang memerlukan sistem referensi buku jaringan yang praktis dan efisien.
             </p>
-            <a href="/books" class="btn btn-primary px-4 py-2 mt-3">📚 Lihat Koleksi Buku</a>
+            <a href="/books" class="btn btn-primary px-4 py-2 mt-3 text-dark fw-semibold">Lihat Koleksi Buku</a>
         </div>
     </div>
 </div>

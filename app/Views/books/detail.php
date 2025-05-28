@@ -40,7 +40,7 @@
                             </form>
 
                             <div class="mt-3">
-                                <a href="/books" class="btn btn-secondary btn-sm">← Kembali ke Daftar Buku</a>
+                                <a href="/books" class="btn btn-secondary btn-sm">Kembali ke Daftar Buku</a>
                             </div>
                         </div>
                     </div>
