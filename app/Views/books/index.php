@@ -6,10 +6,16 @@
         <div class="col">
             <h1 class="mt-2">Daftar Buku</h1>
 
+            <?php if (session()->getFlashdata('pesan')): ?>
+                <div class="alert alert-success" role="alert">
+                    <?= session()->getFlashdata('pesan'); ?>
+                </div>
+            <?php endif; ?>
+
             <a href="/books/create" class="btn btn-primary mb-3 ">Tambah Data Buku</a>
 
             <table class="table">
-                <thead>
+                <thead class="table-light">
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Sampul</th>
@@ -22,7 +28,9 @@
                     foreach ($buku as $b): ?>
                         <tr>
                             <th scope="row"><?= $i++; ?></th>
-                            <td><img src="/img/<?= esc($b['sampul']); ?>" alt="" width="100"></td>
+                            <td>
+                                <img src="/img/<?= esc($b['sampul']); ?>" alt="" width="100">
+                            </td>
                             <td><?= esc($b['judul']); ?></td>
                             <td>
                                 <a href="/books/<?= esc($b['slug']); ?>" class="btn btn-success">Detail</a>
