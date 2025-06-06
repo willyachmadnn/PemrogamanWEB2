@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-8">
-            <h2 class="my-3">Ubah Data Buku</h2>
+            <h2 class="my-3">Edit Data Buku</h2>
 
             <?php if (session()->getFlashdata('error')): ?>
                 <div class="alert alert-danger" role="alert">
@@ -12,9 +12,10 @@
                 </div>
             <?php endif; ?>
 
-            <form action="/books/update/<?= $buku['id']; ?>" method="post">
+            <form action="/books/update/<?= $buku['id']; ?>" method="post" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <input type="hidden" name="slug" value="<?= $buku['slug']; ?>">
+                <input type="hidden" name="sampulLama" value="<?= $buku['sampul']; ?>">
 
                 <div class="mb-3">
                     <label for="judul" class="form-label">Judul</label>
@@ -39,11 +40,12 @@
 
                 <div class="mb-3">
                     <label for="sampul" class="form-label">Sampul</label>
-                    <input type="text" name="sampul" value="<?= old('sampul', $buku['sampul']); ?>"
+                    <input type="file" name="sampul" id="sampul"
                         class="form-control <?= ($validation->hasError('sampul')) ? 'is-invalid' : ''; ?>">
+                    <div class="invalid-feedback"><?= $validation->getError('sampul'); ?></div>
                 </div>
 
-                <button type="submit" class="btn btn-primary text-dark fw-semibold">Ubah Data</button>
+                <button type="submit" class="btn btn-primary text-dark fw-semibold">Edit Data</button>
             </form>
         </div>
     </div>

@@ -10,7 +10,7 @@
         </div>
     <?php endif; ?>
 
-    <form action="/books/save" method="post">
+    <form action="/books/save" method="post" enctype="multipart/form-data">
         <?= csrf_field(); ?>
 
         <div class="mb-3">
@@ -35,8 +35,11 @@
         </div>
 
         <div class="mb-3">
-            <label for="sampul" class="form-label">Sampul</label>
-            <input type="text" name="sampul" value="<?= old('sampul'); ?>" class="form-control">
+            <label for="sampul" class="form-label">Upload</label>
+            <input type="file" name="sampul" id="sampul"
+                class="form-control <?= ($validation->hasError('sampul')) ? 'is-invalid' : ''; ?>"
+                onchange="previewImg()">
+            <div class="invalid-feedback"><?= $validation->getError('sampul'); ?></div>
         </div>
 
         <button type="submit" class="btn btn-primary text-dark fw-semibold">Tambah Buku</button>

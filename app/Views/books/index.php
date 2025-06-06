@@ -12,9 +12,15 @@
                 </div>
             <?php endif; ?>
 
+            <?php if (session()->getFlashdata('error')): ?>
+                <div class="alert alert-danger">
+                    <?= session()->getFlashdata('error'); ?>
+                </div>
+            <?php endif; ?>
+
             <a href="/books/create" class="btn btn-primary mb-3 text-dark fw-semibold">Tambah Buku</a>
 
-            <table class="table table-bordered table-striped">
+            <table class="table table-bordered table-striped text-center align-middle">
                 <thead class="table-light">
                     <tr>
                         <th scope="col">#</th>
@@ -33,13 +39,13 @@
                             </td>
                             <td><?= esc($b['judul']); ?></td>
                             <td>
-                                <a href="/books/<?= esc($b['slug']); ?>" class="btn btn-success btn-sm">Detail</a>
+                                <a href="/books/<?= esc($b['slug']); ?>"
+                                    class="btn btn-success btn-sm fw-semibold">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-
         </div>
     </div>
 </div>
