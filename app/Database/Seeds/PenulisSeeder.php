@@ -36,6 +36,9 @@ class PenulisSeeder extends Seeder
         // Atau cukup pakai query builder
         //$this->db->table('penulis')->insertBatch($data);
 
+        
+        
+
         $faker = \Faker\Factory::create('id_ID');
 
         for ($i = 0; $i < 100; $i++) {
@@ -43,7 +46,7 @@ class PenulisSeeder extends Seeder
                 'name' => $faker->name,
                 'address' => $faker->address,
                 'email' => $faker->unique()->safeEmail,
-                'phone_number' => '08' . $faker->numerify('##########'), // Hasil: 08xxxxxxxxxx
+                'phone_number' => '08' . $faker->numerify('##########'),
                 'created_at' => Time::createFromTimestamp($faker->unixTime()),
                 'updated_at' => Time::now()
             ];
