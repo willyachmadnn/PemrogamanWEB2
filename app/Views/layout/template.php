@@ -26,12 +26,13 @@
                     <li class="nav-item"><a class="nav-link text-dark fw-bold" href="/contact">Contact</a></li>
                     <li class="nav-item"><a class="nav-link text-dark fw-bold" href="/biodata">Biodata</a></li>
                     <li class="nav-item"><a class="nav-link text-dark fw-bold" href="/books">Daftar Buku</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark fw-bold" href="/penulis">Daftar Penulis</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <?= $this->rendersection('content'); ?>
+    <?= $this->renderSection('content'); ?>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
         </script>
